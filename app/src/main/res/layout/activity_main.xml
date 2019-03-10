@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -29,8 +29,43 @@
         android:id="@+id/myTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         tools:layout_editor_absoluteX="109dp"
         tools:layout_editor_absoluteY="292dp" />
+
+    <TextView
+        android:id="@+id/txtDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date" />
+
+    <TextView
+        android:id="@+id/txtType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Type" />
+
+    <TextView
+        android:id="@+id/txtDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Description" />
+
+    <TextView
+        android:id="@+id/txtTreatment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Treatment" />
+
+    <TextView
+        android:id="@+id/txtDosage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dosage" />
+
+    <TextView
+        android:id="@+id/txtPrescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Prescription" />
 
 </LinearLayout>

@@ -19,15 +19,22 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
+
 public class PrescriptionData extends AsyncTask<Integer, Void, Void> {
     public String data="";
     String dataParsed=""; // comment
     String ownerJO = "";
+String dosage="";
 
     String joText = "";
     String joImage = "";
     int thisTokenId=0;
     //  String ipfsText = joText.getString();
+   String date1 = "";
+    String type1 = "";
+    String description = "";
+    String treatment = "";
+    String prescription ="";
 
     @Override
     protected Void doInBackground(Integer... parms) {
@@ -91,12 +98,31 @@ String input = "test";
 
 
                 JSONObject JO = new JSONObject(data);
-               ownerJO = JO.getString("data");
-             //   String date = JO.getJSONObject("payload").getString("date");
-             //  Gson gson = new Gson();
-               // JsonObject js = gson.fromJson(bufferedReader, JsonObject.class)
 
+               ownerJO = JO.getString("data");
+                JSONObject JO1 = new JSONObject(ownerJO);
+              String  attrstr = JO1.getString("attributes");
+                JSONObject JO2 = new JSONObject(attrstr);
+                String payload = JO2.getString("payload");
+                JSONObject JO3 = new JSONObject(payload);
+                date1 = JO3.getString("date");
+                type1 = JO3.getString("type");
+                dosage = JO3.getString("dosage");
+                treatment = JO3.getString("treatment");
+                description = JO3.getString("description");
+                prescription = JO3.getString("prescription");
+
+
+
+                //  Gson gson = new Gson();
+               // JsonObject js = gson.fromJson(bufferedReader, JsonObject.class)
+                //JSONObject payload  = JO.getJSONObject("data");
+              //    dosage = JO.getString("data");
+             //   JSONObject JOinner = new JSONObject(dosage);
+             //   dosage = JO.getString("payload");
+            //    JSONObject JO = new JSONObject(data);
 int h=103;
+
                 //   "data": [
              //   {
              //       "type": "file",
@@ -134,11 +160,18 @@ int h=103;
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        String displayData = "Processing TokenId - " + data + "\n" +
-                "Owner - " + ownerJO + "\n";
+        String displayData = "Showing Prescription";
         //    "Text - " + joText + "\n" +
         //    "image - " + joImage;
-        MainActivity.tv.setText(displayData);
+        MainActivity.txtDate.setText(date1);
+        MainActivity.txtType.setText(type1);
+        MainActivity.txtDosage.setText(dosage);
+        MainActivity.txtTreatment.setText(treatment);
+        MainActivity.txtDescription.setText(description);
+        MainActivity.txtPrescription.setText(prescription);
+
+
+
         //    MainActivity.tvIpfsTextUrl.setText(joText);
 
 
